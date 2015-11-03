@@ -1,0 +1,31 @@
+What we thought is enough
+
+1. we need board to play
+2. it has to have n columns and n rows
+3. columns and rows should be equal
+4. Game has to have 2 players
+5. Win scenarios:
+	- n signs in a column
+	- n sings in a diagonal
+	- n sings in a row
+6. Putting sign is possible in x,y coordinates if field is empty
+7. Game has turns where players play after each other
+8. 
+
+
+What we really needed
+1. we need board to play
+2. it has to have n columns and n rows
+3. columns and rows should be equal
+4. Game has to have board and 2 players 
+4.1 Players cannot be null
+4.2 Player has to be differnet
+5. Win scenarios:
+	- n signs in a column
+	- n sings in a diagonal
+	- n sings in a row
+6. Putting sign is possible in x,y coordinates if field is empty
+7. Game has turns where players play after each other
+7.1 Each turn changes player, so same player cannot go twice
+7.2 Before games starts there is no current player
+8. 
