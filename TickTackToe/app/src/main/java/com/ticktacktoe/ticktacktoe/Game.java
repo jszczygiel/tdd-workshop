@@ -37,14 +37,35 @@ public class Game {
         return players[1];
     }
 
-    public void nextPlayer() {
+    public void nextPlayer(int row, int column) {
         turn++;
+        if (board.getFieldSign(row, column) != Board.EMPTY_FIELD_SIGN) {
+            throw new IllegalStateException("Field already taken");
+        }
+        board.setFieldSign(row, column, getPlayerIndex());
+        if(board) {
+            throw new IllegalStateException("There was winner");
+        }
+    }
+
+    private int getPlayerIndex() {
+        return turn % players.length;
     }
 
     public Player getCurrentPlayer() {
-        if (turn == -1) {
-            return null;
-        }
-        return players[turn % players.length];
+        return turn == -1 ? null : players[getPlayerIndex()];
+    }
+
+    public boolean isSignPlaced(int row, int column) {
+        return board.getFieldSign(row, column) != Board.EMPTY_FIELD_SIGN;
+    }
+
+    public Player getPlayerOnPosition(int row, int column) {
+        int sign = board.getFieldSign(row, column);
+        return sign == Board.EMPTY_FIELD_SIGN ? null : players[sign];
+    }
+
+    public Player getWinningPlayer() {
+        return getCurrentPlayer();
     }
 }
